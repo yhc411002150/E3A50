@@ -3,7 +3,7 @@
 int main (void)
 {	
 	char n;
-	int code=0;
+	int count = 0,password = 2023 ;
 	
 	printf(" 																	      \n");
 	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   \n");
@@ -26,23 +26,30 @@ int main (void)
 	printf("   																	      \n");
 	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   \n");
 	printf(" 																	      \n");
-	
-	system("pause");             // 螢幕畫面暫停，並等待使用者按任意鍵
-	system("CLS");               // 清除螢幕
-//_________________________________以上為第一題
-	printf("請輸入4 個數字的密碼(2023):");		//印出 
-	scanf("%d",&code);
-	if(code==2023)				//判斷條件 
+	//system("pause");             // 螢幕畫面暫停，並等待使用者按任意鍵
+	//system("CLS");               // 清除螢幕
+	while (count < 3) 
 	{
-		printf("輸入正確!歡迎進入~\n");		//印出 
-	}
-	else
-	{
-		printf("密碼輸入錯誤!\n");			//印出 
-		printf("%c", '\a');					//輸出警告聲響 
-		return 0;				//結束程式 
-	}
-//_________________________________以上為第二題	
+        printf("請輸入四個數字的密碼：");
+        scanf("%d",&password);
+        count++;
+        if (password==2023)
+		{
+            printf("輸入正確！歡迎~\n");
+            break;
+        } 
+		else 
+		{
+	        printf("密碼錯誤，已輸入: %d 次。\n", count);
+            if (count == 3) 
+			{
+        		printf("輸入已連續錯誤三次，登入結束！\n");
+      		  printf("%c", '\a');					//輸出警告聲響 
+				return 0;
+    		}
+    	}
+    }
+//_________________________________以上為第一題	
 	system("CLS");               // 清除螢幕
 	//印出主選單 
 	{
@@ -52,9 +59,9 @@ int main (void)
 		printf("         |                                  |							      \n");
 		printf("         |         *     MENU      *        |							      \n");
 		printf("         |                                  |							      \n");
-		printf("         |         A ~ Z : Uppercase        |\n");
-		printf("         |         a ~ z : Lowercase        |\n");
-		printf("         |         0 ~ 9 : Digit            |\n");
+		printf("         |         a. 畫出直角三角形        |\n");
+		printf("         |         b. 顯示乘法表            |\n");
+		printf("         |         c. 結束                  |\n");
 		printf("         |     Otherwise : My Class         |							      \n");
 		printf("         |                 Seat number      |							      \n");
 		printf("         |                 My namer         |							      \n");
