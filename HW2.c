@@ -2,10 +2,11 @@
 #include<stdlib.h> 	
 int main (void)
 {	
-	char n;
-	int count = 0,password = 2023 ;
-	
-	printf(" 																	      \n");
+	char c;//case A的變數 
+	int count = 0,password = 2023 ;//第一題用的計數跟密碼 
+	char MENU;//主選單的輸入 
+	int i,j,n;// case B的變數 
+	/*printf(" 																	      \n");
 	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   \n");
 	printf(" 																	      \n");
 	printf(" 																	      \n");
@@ -52,46 +53,85 @@ int main (void)
 //_________________________________以上為第一題	
 	system("CLS");               // 清除螢幕
 	//印出主選單 
+	*/
+	while(1)
 	{
-		printf(" 																	      \n");
-		printf("          __________________________________          \n");
-		printf("         |                                  |							      \n");
-		printf("         |                                  |							      \n");
-		printf("         |         *     MENU      *        |							      \n");
-		printf("         |                                  |							      \n");
-		printf("         |         a. 畫出直角三角形        |\n");
-		printf("         |         b. 顯示乘法表            |\n");
-		printf("         |         c. 結束                  |\n");
-		printf("         |     Otherwise : My Class         |							      \n");
-		printf("         |                 Seat number      |							      \n");
-		printf("         |                 My namer         |							      \n");
-		printf("         |                                  |							      \n");	
-		printf("         |  please input a character later  |\n");
-		printf("    	 |  will output the corresponding   |\n");
-		printf("         |                                  |\n");
-		printf("         |                                  |							      \n");
-		printf("         |__________________________________|							      \n");
-	}
-//_________________________________以上為第三題	
-	printf("請輸入一個字元:");
-	fflush(stdin); 					// 使input buffer 淨空，常放在scanf()前;
-	scanf("%c",&n);
-	if( (n>='A') && (n<='Z') )		//判斷條件(n 在 A~Z) 
-	{
-		printf("Uppercase\n");
-	}
-		else if( (n>='a') && (n<='z') )		//判斷條件(n 在 a~z)
 		{
-			printf("Lowercase\n");	
+			printf("\n");
+			printf("\n");
+			printf("         |    *****                  *      |\n");/*螢幕出現主選單，*/ 
+			printf("         |     ***  E3A 50  陳昱宏  ***     |\n");
+			printf("         |      *                  *****    |\n");
+			printf("          __________________________________ \n");
+			printf("         |                                  |\n");
+			printf("         |      *        MENU        *      |\n");
+			printf("         |                                  |\n");
+			printf("         |         a. 畫出直角三角形        |\n");
+			printf("         |         b. 顯示乘法表            |\n");
+			printf("         |         c. 結束                  |\n");
+			printf("         |                                  |\n");
+			printf("         |                                  |\n");
+			printf("         |__________________________________|\n");
 		}
-			else if( (n>='0') && (n<='9') )		//判斷條件(n 在 0~9)
-			{
-				printf("Digit\n");
-			}	
-				else 
+	
+		printf("    請輸入想執行的選項: ");
+		fflush(stdin);
+		scanf("%c",&MENU);
+		switch(MENU)
+		{
+			case 'a':
+			case 'A':
+				system("CLS"); // 清除螢幕
+				do 
 				{
-				printf("班級:E3A\n座號:50\n姓名:陳昱宏\n");
+					printf("    請輸入一個‘a’到‘n’的字元: ");		
+					fflush(stdin); 					// 使input buffer 淨空，常放在scanf()前;
+					scanf("%c",&c);
+					if(c < 'a' || c > 'n')				 
+ 		  		    {
+ 		  		    	printf("輸入錯誤!請重新輸入~\n");	//如果有錯，就要給一個提示字句告知輸入有錯。 
+					}
 				}
+				while(c < 'a' || c > 'n');
+			//	for(char A= c ; A>'a' ;A-- )
+				{
+			//	printf("%c",A);		
+				}
+    	    	getch();						// 按任意鍵清除 
+				system("CLS"); 					// 清除螢幕			
+				break;
+			case 'b':
+			case 'B':
+				system("cls"); // 清除螢幕
+				do
+				{				
+ 	  	    	 	printf("請輸入一個1至9的整數n：");
+ 	 	     	 	fflush(stdin); 					// 使input buffer 淨空，常放在scanf()前;
+ 	  			    scanf("%d", &n);
+ 	  			    if(n < 1 || n > 9)		//如果有錯，就要給一個提示字句告知輸入有錯。 
+ 	 	 		    {
+ 	 	 		    	printf("輸入錯誤!請重新輸入~\n");	
+					}
+    			}
+    	   		while(n < 1 || n > 9);
+     	  		printf("乘法表：\n");
+      	  		for (i = 1; i <= n; i++) 
+						{
+      			      	for (j = 1; j <= n; j++) 
+						{
+      			          printf("  %d * %d = %2d  ",i,j, i * j);
+      			      	}
+      			     	printf("\n");
+       	 		}
+        		getch();						// 按任意鍵清除 
+				system("CLS"); 					// 清除螢幕
+				break;
+		}
+	}
+	
+
+		
+	
 	system("PAUSE");
 	return 0;
 //_________________________________以上為第四題	
