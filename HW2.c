@@ -2,10 +2,11 @@
 #include<stdlib.h> 	
 int main (void)
 {	
-	char c;//case A的變數 
+	char c,A,B;//case A的變數 
 	int count = 0,password = 2023 ;//第一題用的計數跟密碼 
 	char MENU;//主選單的輸入 
 	int i,j,n;// case B的變數 
+	char OPTION;//case C的變數 
 	/*printf(" 																	      \n");
 	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   \n");
 	printf(" 																	      \n");
@@ -93,9 +94,13 @@ int main (void)
 					}
 				}
 				while(c < 'a' || c > 'n');
-			//	for(char A= c ; A>'a' ;A-- )
+				for(A= c ; A>='a' ;A-- )
 				{
-			//	printf("%c",A);		
+					for( B = 'a' ; B <= A ; B++ )
+					{
+						printf("%c",B);			
+					}
+					printf("\n");		
 				}
     	    	getch();						// 按任意鍵清除 
 				system("CLS"); 					// 清除螢幕			
@@ -126,6 +131,30 @@ int main (void)
         		getch();						// 按任意鍵清除 
 				system("CLS"); 					// 清除螢幕
 				break;
+			case 'c':
+			case 'C':
+				do
+				{
+					printf("請問是否要繼續執行程式?是請輸入Y、y，否請輸入N、n :\n"); 
+					fflush(stdin);
+					scanf("%c",&OPTION);
+					if(OPTION=='y'||OPTION=='Y')
+					{
+						getch();						// 按任意鍵清除 
+						system("CLS"); 					// 清除螢幕
+						break;							//跳出case 
+					}
+					else if(OPTION=='n'||OPTION=='N')
+					{
+						return 0;
+					}
+					else //if( (OPTION!='y'||OPTION!='Y') || (OPTION!='n'||OPTION!='N') )
+					{
+					 	printf("輸入錯誤\n");
+					}
+				}
+				while( (OPTION!='y'||OPTION!='Y') || (OPTION!='n'||OPTION!='N') );
+			
 		}
 	}
 	
