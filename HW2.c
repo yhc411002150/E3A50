@@ -3,11 +3,12 @@
 int main (void)
 {	
 	char c,A,B;//case A的變數 
+	int space;//case A的空格變數 
 	int count = 0,password = 2023 ;//第一題用的計數跟密碼 
 	char MENU;//主選單的輸入 
 	int i,j,n;// case B的變數 
 	char OPTION;//case C的變數 
-	/*printf(" 																	      \n");
+	printf(" 																	      \n");
 	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   \n");
 	printf(" 																	      \n");
 	printf(" 																	      \n");
@@ -54,16 +55,18 @@ int main (void)
 //_________________________________以上為第一題	
 	system("CLS");               // 清除螢幕
 	//印出主選單 
-	*/
+	
 	while(1)
 	{
 		{
 			printf("\n");
 			printf("\n");
+			printf("          __________________________________ \n");
+			printf("         |                                  |\n");
 			printf("         |    *****                  *      |\n");/*螢幕出現主選單，*/ 
 			printf("         |     ***  E3A 50  陳昱宏  ***     |\n");
 			printf("         |      *                  *****    |\n");
-			printf("          __________________________________ \n");
+			printf("         |__________________________________|\n");
 			printf("         |                                  |\n");
 			printf("         |      *        MENU        *      |\n");
 			printf("         |                                  |\n");
@@ -78,7 +81,9 @@ int main (void)
 		printf("    請輸入想執行的選項: ");
 		fflush(stdin);
 		scanf("%c",&MENU);
-		switch(MENU)
+//_________________________________以上為第二題	
+		
+		switch(MENU)	//選單(多重選擇 ) 
 		{
 			case 'a':
 			case 'A':
@@ -94,9 +99,13 @@ int main (void)
 					}
 				}
 				while(c < 'a' || c > 'n');
-				for(A= c ; A>='a' ;A-- )
+				for(A= c ; A>='a' ;A-- )	 
 				{
-					for( B = 'a' ; B <= A ; B++ )
+					for (space ='a' ; space <A ; space++)//讓輸出可以靠又對齊排列，加上適當的空格 
+					{
+            			printf(" ");
+        			}
+					for( B = A ; B <= c ; B++ )//輸出時以升冪排列 
 					{
 						printf("%c",B);			
 					}
@@ -105,6 +114,7 @@ int main (void)
     	    	getch();						// 按任意鍵清除 
 				system("CLS"); 					// 清除螢幕			
 				break;
+//_________________________________以上為第三題					
 			case 'b':
 			case 'B':
 				system("cls"); // 清除螢幕
@@ -124,18 +134,19 @@ int main (void)
 						{
       			      	for (j = 1; j <= n; j++) 
 						{
-      			          printf("  %d * %d = %2d  ",i,j, i * j);
+      			          printf("  %d * %d = %2d  ",i,j, i * j);//排版注意空間 
       			      	}
       			     	printf("\n");
        	 		}
         		getch();						// 按任意鍵清除 
 				system("CLS"); 					// 清除螢幕
 				break;
+//_________________________________以上為第四題	
 			case 'c':
 			case 'C':
 				do
 				{
-					printf("請問是否要繼續執行程式?是請輸入Y、y，否請輸入N、n :\n"); 
+					printf("請問是否要繼續執行程式? [是] 請輸入(Y、y)，[否] 請輸入(N、n) :\n"); 
 					fflush(stdin);
 					scanf("%c",&OPTION);
 					if(OPTION=='y'||OPTION=='Y')
@@ -154,14 +165,9 @@ int main (void)
 					}
 				}
 				while( (OPTION!='y'||OPTION!='Y') || (OPTION!='n'||OPTION!='N') );
-			
 		}
 	}
-	
-
-		
-	
 	system("PAUSE");
 	return 0;
-//_________________________________以上為第四題	
+//_________________________________以上為第五題	
 }
